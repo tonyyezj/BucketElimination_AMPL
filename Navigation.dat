@@ -1,0 +1,27 @@
+param bigM:= 100;
+
+param horizon:= 10; # number of steps
+
+param nDims:= 2;
+
+param minmazebounds_d:= 1 0 2 0; # min bounds for x, y
+
+param maxmazebounds_d:= 1 10 2 10; # max bounds for x, y
+
+param minactionbounds_d:= 1 -1 2 -1; # min deltax and deltay
+
+param maxactionbounds_d:= 1 1 2 1; # max deltax deltay
+
+param minmudbounds_d:= 1 4 2 4; # left boundary of mud region
+
+param maxmudbounds_d:= 1 6 2 6; # right boundary of mud region
+
+param initial_d:= 1 0 2 0; # initial coordinate
+
+param goal_d:= 1 8 2 8; #goal coordinate
+
+param discount:= 0.5; # discount factor for inside the region
+
+param nCond:= 2; # condition 1: to the right of minmud
+				 # condition 2: to the left of maxmud
+				 # condition 1 and 2: inside mud region!

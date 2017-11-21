@@ -1,0 +1,13 @@
+reset;
+
+param OutputFile symbolic := 'C:\Users\Tony\Documents\AMPL\ops.txt';
+
+model 'C:\Users\Tony\Documents\AMPL\xortest.mod';
+option solver gurobi;
+option gurobi_options 'timelim 20';
+solve;
+#print profit >> (OutputFile);
+#print x1 >> (OutputFile);
+display _total_solve_time;
+display x;
+display flag;
