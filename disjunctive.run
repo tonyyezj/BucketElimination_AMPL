@@ -1,0 +1,19 @@
+reset;
+
+model 'C:\Users\Tony\Documents\AMPL\disjunctive.mod';
+option solver gurobi;
+#option gurobi_options 'timelim 6';
+solve;
+#print profit >> (OutputFile);
+#print x1 >> (OutputFile);
+display _total_solve_time;
+display t;
+#display flag;
+#display penalty;
+#display id;
+#display id2;
+#display pCon;
+display coeff1;
+#display coeff2;
+#display coeff3;
+#display coeff4;
