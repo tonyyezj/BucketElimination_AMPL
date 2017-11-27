@@ -2,7 +2,7 @@ reset;
 
 model 'C:\Users\Tony\Documents\AMPL\disjunctive.mod';
 option solver gurobi;
-#option gurobi_options 'timelim 6';
+option gurobi_options 'timelim 1000';
 solve;
 #print profit >> (OutputFile);
 #print x1 >> (OutputFile);

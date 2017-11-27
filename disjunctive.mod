@@ -1,6 +1,6 @@
 param M:= 10000;
 
-param numFactors:= 30;
+param numFactors:= 10;
 
 set fact:= 1..numFactors ordered;
 
@@ -16,7 +16,8 @@ param coeff1 {i in fact}:= round(Uniform(5, 10));
 param coeff2 {i in fact}:= round(Uniform(5, 10));
 param coeff3 {i in fact}:= round(Uniform(5, 10));
 param coeff4 {i in fact}:= round(Uniform(5, 10));
-
+param preferredTime1:= 0;
+param preferredTime2:= (numFactors)*10;
 
 minimize value: sum{i in fact} (t[i] + preference[i]^2 );
 #minimize value: sum{i in fact} (t[i] + pCon[i] * 1 + penalty[i]);
@@ -43,7 +44,8 @@ subject to postStart {i in 1..(numFactors - 1)}: t[i] + 10 <= t[i+1];
 #preferenceConstraint
 subject to pref1 {j in fact}: t[j] <= (j+1)*10 + M*(1-satisfied[j]); 
 subject to pref2 {j in fact}: t[j] + satisfied[j]*M >= (j+1)*10 ;
-subject to pref3 {j in 1 .. numFactors}: satisfied[j] ==> (preference[j] = t[j] - 10) else (preference[j] = 9 - t[j]);
+subject to pref3 {j in 1 .. numFactors}: satisfied[j] ==> (preference[j] = t[j] - preferredTime1) else (preference[j] = t[j] - preferredTime2 );
+#subject to pref3 {j in 1 .. numFactors}: preference[j] = preferredTime - t[j];
 #subject to prefa: preference[first(fact)] = 0;
 #subject to prefb: preference[last(fact)] = 0;
 
