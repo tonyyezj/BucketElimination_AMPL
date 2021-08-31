@@ -1,0 +1,3 @@
+# BucketElimination_AMPL
+
+Code for replicating Gurobi optimizer runtime comparisons in paper https://www.researchgate.net/publication/325622569_Symbolic_Bucket_Elimination_for_Piecewise_Continuous_Constrained_Optimization
